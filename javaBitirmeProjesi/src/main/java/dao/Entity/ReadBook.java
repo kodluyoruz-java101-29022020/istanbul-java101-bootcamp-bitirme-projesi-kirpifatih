@@ -2,10 +2,14 @@ package dao.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,8 +21,7 @@ public class ReadBook implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	
-	
+		
 	@Id
 	@org.springframework.data.annotation.Id
 	@Column(name = "id_Read")
@@ -35,7 +38,9 @@ public class ReadBook implements Serializable {
 	private String Description;
 	
 	@Column(name="Author")
-	private String Author;
+	private List<Author>Author;
+	
+	@OneToMany(mappedBy = "Read_Book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	
 	
 	public Long getEmpNo() {
@@ -60,13 +65,14 @@ public class ReadBook implements Serializable {
 	public void setPressYear(Date PressYear) {
 		this.PressYear =PressYear;
 	}
-	public String getAuthor() {
+	
+
+	public List<Author> getAuthor() {
 		return Author;
 	}
 
-	public void setAuthor(String Author) {
-		this.Author =Author;
+	public void setAuthor(List<Author> Author) {
+		this.Author = Author;
 	}
-
 
 }

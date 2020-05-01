@@ -2,12 +2,14 @@ package dao.Jpa;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import dao.Entity.Read_Book;
+import service.model.Read_BookProfile;
 
 @Repository
 public interface  Read_BookRepository extends CrudRepository<Read_Book, Long>{
@@ -20,9 +22,9 @@ public interface  Read_BookRepository extends CrudRepository<Read_Book, Long>{
 	public Long findMaxId();
 	
 	@Query(value = "SELECT e FROM Read_Book e")
-	public List<Read_Book> getAllEmployeeList();
+	public List<Read_Book> getAllRead_BookList();
 	
-	//işle me yap
-	/*@Query(value = "SELECT new demo.spring.boot.service.model.EmployeeProfile(emp, empDept.name) FROM Employee emp LEFT OUTER JOIN emp.departments empDept")
-	public List<EmployeeProfile> getAllEmployeeProfileList(Pageable pageable);*/
+	
+	@Query(value = "SELECT new service.model.Read_BookProfile(read, readB.name) FROM Read_Book read LEFT OUTER JOIN read.Author readB")
+	public List<Read_BookProfile> getAllRead_BookProfileList(Pageable pageable);
 }

@@ -11,9 +11,11 @@ import javax.persistence.Table;
 @Table(name="Author")
 public class Author implements Serializable{
 
-
-	private static final long serialVersionUID = 1L;
 	
+	private static final long serialVersionUID = 4957144670390541351L;
+
+	
+
 	@Id
 	@org.springframework.data.annotation.Id
 	@Column(name = "id_Author")

@@ -38,7 +38,7 @@ public class Read_Book implements Serializable {
 	private String Description;
 	
 	@Column(name="Author")
-	private List<Author>Author;
+	private String Author;
 	
 	@OneToMany(mappedBy = "Read_Book", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	
@@ -75,11 +75,11 @@ public class Read_Book implements Serializable {
 	}
 	
 
-	public List<Author> getAuthor() {
+	public String getAuthor() {
 		return Author;
 	}
 
-	public void setAuthor(List<Author> Author) {
+	public void setAuthor(String Author) {
 		this.Author = Author;
 	}
 	

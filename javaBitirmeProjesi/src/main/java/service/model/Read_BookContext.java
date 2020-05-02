@@ -15,7 +15,7 @@ public class Read_BookContext implements Serializable {
     private String Title;	
     private Date PressYear;
 	private String Description;	
-	private List<Author>Author;
+	private String Author;
 	
 	public Long getid_Read() {
 		return id_Read;
@@ -49,11 +49,11 @@ public class Read_BookContext implements Serializable {
 	}
 	
 
-	public List<Author> getAuthor() {
+	public String getAuthor() {
 		return Author;
 	}
 
-	public void setAuthor(List<Author> Author) {
+	public void setAuthor(String Author) {
 		this.Author = Author;
 	}
 
